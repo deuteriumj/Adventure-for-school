@@ -40,34 +40,14 @@ while True:
             print("the door is locked")
             currentRoom = "FRONTYARD"
             continue
-        else:
-            while currentRoom == "HOUSE":
-                action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
 
-                if action == "INVENTORY":
-                    inventoryUI()
-                elif action == "ACTIONS":
-                    actionsUI()
-                elif "TAKE" in action:
-                    if "PHONE" in action:
-                        inventory.append("PHONE")
-                        print(f"\nYou got PHONE")
-                        print(dataFile["places"]["HOUSE"]["itemDescriptions"]["PHONE"])
-                        dataFile["places"]["HOUSE"]["items"].remove("PHONE")
-                        input("Press enter to continue...")
-                elif "USE" in action:
-                    if "PHONE" in action:
-                        print(availableResults["PHONE"])
-                        quit()
-                elif action == "GO TO FRONTYARD":
-                    currentRoom = "FRONTYARD"
-                    continue
     action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
     
     if action == "INVENTORY":
         inventoryUI()
     elif action == "ACTIONS":
         actionsUI()
+
     elif "TAKE " in action:
         # check if the item in action is also in available items
         for i in availableItems:
@@ -77,11 +57,13 @@ while True:
                 print(dataFile["places"][currentRoom]["itemDescriptions"][i])
                 dataFile["places"][currentRoom]["items"].remove(i)
                 input("Press enter to continue...")
+
     elif "GO TO " in action:
         # check if the place in action is also in the available movements
         for i in currentMovements:
             if i in action:
                 currentRoom = i
+
     elif "USE " in action:
         # check if the item in action is also in available interactions and inventory
         for i in availableInteractions:
@@ -91,12 +73,15 @@ while True:
                     dataFile["places"]["FOREST"]["connectedPlaces"].remove("DIRT_PATCH")
                     dataFile["places"]["FOREST"]["connectedPlaces"].append("THE_HOLE")
                     currentRoom = "THE_HOLE"
+                
                 elif i == "STRANGE_KEY":
                     inventory.append("HOUSE_KEY")
                     print(f"You got HOUSE_KEY")
                     print(dataFile["places"][currentRoom]["itemDescriptions"]["HOUSE_KEY"])
                     input("Press enter to continue...")
+                
                 elif i == "HOUSE_KEY":
                     houseOpen = True
+                
                 elif i == "PHONE":
                     quit()
