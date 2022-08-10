@@ -1,0 +1,147 @@
+{
+    "places": {
+        "FOREST": {
+            "connectedPlaces" : [
+                "FRONTYARD",
+                "DIRT_PATCH"
+            ],
+            "description": "there's trees around you and a clearing in front of you",
+            "items" : [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "FRONTYARD": {
+            "connectedPlaces": [
+                "FOREST",
+                "BACKYARD",
+                "HOUSE"
+            ],
+            "description": "you are in the clearing in the middle of the woods, there is a house in front of you",
+            "items" : [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "HOUSE_KEY",
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "HOUSE_KEY" : "you open the door",
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "BACKYARD" : {
+            "connectedPlaces": [
+                "BACK_FOREST",
+                "FRONTYARD",
+                "SHED"
+            ],
+            "description": "you are behind the house, there is a shed",
+            "items": [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "SHED" : {
+            "connectedPlaces": [
+                "BACKYARD"
+            ],
+            "description" :"you are surrounded by garden tools, there's a key hanging on a nail on the wall",
+            "items": [
+                "STRANGE_KEY"
+            ],
+            "itemDescriptions": {
+                "STRANGE_KEY": "It's an old, slightly rusty skeleton key"
+            },
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "HOUSE" : {
+            "connectedPlaces" : [
+                "FRONTYARD"
+            ],
+            "description" : "uninhabited but clean, theres a phone",
+            "items" : [
+                "PHONE"
+            ],
+            "itemDescriptions" : {
+                "PHONE" : "It's an old grey nokia flip phone"
+            },
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "DIRT_PATCH" : {
+            "connectedPlaces" : [
+                "FOREST",
+                "FRONTYARD"
+            ],
+            "description" : "Looks like something was buried here",
+            "items" : [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "SHOVEL",
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "SHOVEL" : "you dig a hole and theres a chest",
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "BACK_FOREST" : {
+            "connectedPlaces" : [
+                "BACKYARD"
+            ],
+            "description" : "you are in the forest on the other side of the clearing, theres a shovel on the ground",
+            "items" : ["SHOVEL"],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved",
+                "SHOVEL" : "It's an iron shovel with a wooden handle"
+            }
+        },
+
+        "THE_HOLE" : {
+            "connectedPlaces" : [
+                "FOREST",
+                "FRONTYARD"
+            ],
+            "description" : "you dug this hole, theres a chest in it",
+            "items" : [],
+            "itemDescriptions" : {
+                "HOUSE_KEY" : "house keeeeeeeeeeeeeeeeeeeeeeeeeee"
+            },
+            "availableInteractions" : [
+                "STRANGE_KEY",
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "STRANGE_KEY" : "you open the chest and get another key",
+                "PHONE" : "You phone help and get saved"
+            }
+        }
+    }
+}
