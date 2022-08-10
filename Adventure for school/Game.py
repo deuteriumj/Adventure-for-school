@@ -39,12 +39,7 @@ while True:
         if houseOpen is False:
             print("the door is locked")
             currentRoom = "FRONTYARD"
-
-            availableInteractions = dataFile["places"][currentRoom]["availableInteractions"]
-            currentMovements = dataFile["places"][currentRoom]["connectedPlaces"]
-            currentDesc = dataFile["places"][currentRoom]["description"]
-            availableItems = dataFile["places"][currentRoom]["items"]
-            availableResults = dataFile["places"][currentRoom]["interactionResults"]
+            continue
         else:
             while currentRoom == "HOUSE":
                 action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
@@ -66,12 +61,7 @@ while True:
                         quit()
                 elif action == "GO TO FRONTYARD":
                     currentRoom = "FRONTYARD"
-
-                    availableInteractions = dataFile["places"][currentRoom]["availableInteractions"]
-                    currentMovements = dataFile["places"][currentRoom]["connectedPlaces"]
-                    currentDesc = dataFile["places"][currentRoom]["description"]
-                    availableItems = dataFile["places"][currentRoom]["items"]
-                    availableResults = dataFile["places"][currentRoom]["interactionResults"]
+                    continue
     action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
     
     if action == "INVENTORY":
@@ -96,20 +86,17 @@ while True:
         # check if the item in action is also in available interactions and inventory
         for i in availableInteractions:
             if i in action and i in inventory:
+                print(availableResults[i])
                 if i == "SHOVEL":
-                    print(availableResults[i])
                     dataFile["places"]["FOREST"]["connectedPlaces"].remove("DIRT_PATCH")
                     dataFile["places"]["FOREST"]["connectedPlaces"].append("THE_HOLE")
                     currentRoom = "THE_HOLE"
                 elif i == "STRANGE_KEY":
-                    print(availableResults[i])
                     inventory.append("HOUSE_KEY")
                     print(f"You got HOUSE_KEY")
                     print(dataFile["places"][currentRoom]["itemDescriptions"]["HOUSE_KEY"])
                     input("Press enter to continue...")
                 elif i == "HOUSE_KEY":
-                    print(availableResults[i])
                     houseOpen = True
                 elif i == "PHONE":
-                    print(availableResults[i])
                     quit()
