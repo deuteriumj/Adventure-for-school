@@ -1,0 +1,43 @@
+{
+    "places": {
+        "FOREST": {
+            "connectedPlaces" : [
+                "FRONTYARD"
+            ],
+            "description": "there's trees around you and a clearing in front of you",
+            "items" : []
+        },
+        "FRONTYARD": {
+            "connectedPlaces": [
+                "FOREST",
+                "BACKYARD",
+                "HOUSE"
+            ],
+            "description": "you are in the clearing in the middle of the woods, there is a house in front of you",
+            "items" : []
+        },
+        "BACKYARD" : {
+            "connectedPlaces": [
+                "F0REST",
+                "FRONTYARD",
+                "SHED"
+            ],
+            "description": "you are behind the house, there is a shed",
+            "items": []
+        },
+        "SHED" : {
+            "connectedPlaces": [
+                "BACKYARD"
+            ],
+            "description" :"you are surrounded by garden tools, there's a key hanging on a nail on the wall",
+            "items": [
+                "STRANGE_KEY",
+                "SHOVEL"
+            ],
+            "itemDescriptions": {
+                "STRANGE_KEY": "It's an old, slightly rusty skeleton key",
+                "SHOVEL" : "It's an iron shovel with a wooden handle"
+            }
+        }
+    }
+}
