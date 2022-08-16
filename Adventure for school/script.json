@@ -52,6 +52,22 @@
             }
         },
 
+        "BACK_FOREST" : {
+            "connectedPlaces" : [
+                "BACKYARD"
+            ],
+            "description" : "you are in the forest on the other side of the clearing, theres a shovel on the ground",
+            "items" : ["SHOVEL"],
+            "itemDescriptions" : {},
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : "You phone help and get saved",
+                "SHOVEL" : "It's an iron shovel with a wooden handle"
+            }
+        },
+
         "SHED" : {
             "connectedPlaces": [
                 "BACKYARD"
@@ -62,25 +78,6 @@
             ],
             "itemDescriptions": {
                 "STRANGE_KEY": "It's an old, slightly rusty skeleton key"
-            },
-            "availableInteractions" : [
-                "PHONE"
-            ],
-            "interactionResults" : {
-                "PHONE" : "You phone help and get saved"
-            }
-        },
-
-        "HOUSE" : {
-            "connectedPlaces" : [
-                "FRONTYARD"
-            ],
-            "description" : "uninhabited but clean, theres a phone",
-            "items" : [
-                "PHONE"
-            ],
-            "itemDescriptions" : {
-                "PHONE" : "It's an old grey nokia flip phone"
             },
             "availableInteractions" : [
                 "PHONE"
@@ -108,22 +105,6 @@
             }
         },
 
-        "BACK_FOREST" : {
-            "connectedPlaces" : [
-                "BACKYARD"
-            ],
-            "description" : "you are in the forest on the other side of the clearing, theres a shovel on the ground",
-            "items" : ["SHOVEL"],
-            "itemDescriptions" : {},
-            "availableInteractions" : [
-                "PHONE"
-            ],
-            "interactionResults" : {
-                "PHONE" : "You phone help and get saved",
-                "SHOVEL" : "It's an iron shovel with a wooden handle"
-            }
-        },
-
         "THE_HOLE" : {
             "connectedPlaces" : [
                 "FOREST",
@@ -140,6 +121,25 @@
             ],
             "interactionResults" : {
                 "STRANGE_KEY" : "you open the chest and get another key",
+                "PHONE" : "You phone help and get saved"
+            }
+        },
+
+        "HOUSE" : {
+            "connectedPlaces" : [
+                "FRONTYARD"
+            ],
+            "description" : "uninhabited but clean, theres a phone",
+            "items" : [
+                "PHONE"
+            ],
+            "itemDescriptions" : {
+                "PHONE" : "It's an old grey nokia flip phone"
+            },
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
                 "PHONE" : "You phone help and get saved"
             }
         }
