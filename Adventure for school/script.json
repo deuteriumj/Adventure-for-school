@@ -12,7 +12,7 @@
                 "PHONE"
             ],
             "interactionResults" : {
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
@@ -31,7 +31,7 @@
             ],
             "interactionResults" : {
                 "HOUSE_KEY" : "you open the door",
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
@@ -48,7 +48,7 @@
                 "PHONE"
             ],
             "interactionResults" : {
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
@@ -63,7 +63,7 @@
                 "PHONE"
             ],
             "interactionResults" : {
-                "PHONE" : "You phone help and get saved",
+                "PHONE" : "",
                 "SHOVEL" : "It's an iron shovel with a wooden handle"
             }
         },
@@ -83,7 +83,7 @@
                 "PHONE"
             ],
             "interactionResults" : {
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
@@ -101,7 +101,7 @@
             ],
             "interactionResults" : {
                 "SHOVEL" : "you dig a hole and theres a chest",
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
@@ -121,26 +121,74 @@
             ],
             "interactionResults" : {
                 "STRANGE_KEY" : "you open the chest and get another key",
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
             }
         },
 
-        "HOUSE" : {
+        "ENTRY_HALL" : {
             "connectedPlaces" : [
                 "FRONTYARD"
             ],
             "description" : "uninhabited but clean, theres a phone",
+            "items" : [],
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : ""
+            }
+        },
+
+        "BEDROOM" : {
+            "connectedPlaces" : [
+                "ENTRY_HALL"
+            ],
+            "description" : "",
             "items" : [
                 "PHONE"
             ],
             "itemDescriptions" : {
-                "PHONE" : "It's an old grey nokia flip phone"
+                "PHONE" : ""
             },
             "availableInteractions" : [
                 "PHONE"
             ],
             "interactionResults" : {
-                "PHONE" : "You phone help and get saved"
+                "PHONE" : ""
+            }
+        },
+
+        "LIVING_ROOM" : {
+            "connectedPlaces" : [
+                "ENTRY_HALL",
+                "OFFICE"
+            ],
+            "description" : "",
+            "items" : [],
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : ""
+            }
+        },
+
+        "OFFICE" : {
+            "connectedPlaces" : [
+                "LIVING_ROOM"
+            ],
+            "description" : "",
+            "items" : [
+                "NOTEBOOK"
+            ],
+            "itemDescriptions" : {
+                "NOTEBOOK" : ""
+            },
+            "availableInteractions" : [
+                "PHONE"
+            ],
+            "interactionResults" : {
+                "PHONE" : ""
             }
         }
     }

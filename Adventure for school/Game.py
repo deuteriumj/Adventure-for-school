@@ -1,7 +1,7 @@
 import json
 
 # load the .json file
-f = open('script.json')
+f = open('Adventure for school/script.json')
 dataFile = json.load(f)
 f.close()
 
@@ -11,7 +11,7 @@ currentMovements = []
 availableItems = []
 availableInteractions = []
 availableResults = []
-inventory = []
+inventory = ["HOUSE_KEY"]
 houseOpen = False
 
 def displayIntro():
@@ -34,12 +34,6 @@ while True:
     currentDesc = dataFile["places"][currentRoom]["description"]
     availableItems = dataFile["places"][currentRoom]["items"]
     availableResults = dataFile["places"][currentRoom]["interactionResults"]
-    
-    if currentRoom == "HOUSE":
-        if houseOpen is False:
-            print("the door is locked")
-            currentRoom = "FRONTYARD"
-            continue
 
     action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
     
@@ -85,3 +79,10 @@ while True:
                 
                 elif i == "PHONE":
                     quit()
+    
+    if currentRoom == "HOUSE":
+        if houseOpen is False:
+            print("the door is locked")
+            currentRoom = "FRONTYARD"
+        else:
+            currentRoom = "ENTRY_HALL"
