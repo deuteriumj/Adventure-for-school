@@ -1,9 +1,12 @@
 import json
+import random
 
 # load the .json file
 f = open('Adventure for school/script.json')
 dataFile = json.load(f)
 f.close()
+
+notebookPages = dataFile["pages"]
 
 currentRoom = "FOREST"
 currentDesc = ""
@@ -11,8 +14,12 @@ currentMovements = []
 availableItems = []
 availableInteractions = []
 availableResults = []
-inventory = ["HOUSE_KEY"]
+inventory = ["NOTEBOOK", "PHONE"]
+
 houseOpen = False
+hasWon = False
+PASSWORD = random.randint(100000, 999999)
+PASSWORDPAGE = str(random.randint(1, 20))
 
 def displayIntro():
     print("You remember camping with your friends in the forest but it seems foggy and your head hurts.")
@@ -28,7 +35,7 @@ def actionsUI():
 
 
 displayIntro()
-while True:
+while not hasWon:
     availableInteractions = dataFile["places"][currentRoom]["availableInteractions"]
     currentMovements = dataFile["places"][currentRoom]["connectedPlaces"]
     currentDesc = dataFile["places"][currentRoom]["description"]
@@ -78,7 +85,26 @@ while True:
                     houseOpen = True
                 
                 elif i == "PHONE":
-                    quit()
+                    guess = int(input("Input the password\n>"))
+                    if guess != PASSWORD:
+                        print("incorrect")
+                    else:
+                        hasWon = True
+                
+                elif i == "NOTEBOOK":
+                    in_notebook = True
+                    while in_notebook:
+                        page = input("Choose a page (1-20)\nTo close the notebook type close\n>")
+                        if page == "close":
+                            in_notebook = False
+                        elif page == PASSWORDPAGE:
+                            print(f"Phone password:\n{PASSWORD}")
+                        elif page in notebookPages:
+                            print(notebookPages[page])
+                            input("Press enter to continue...")
+                        else:
+                            print("The page is blank")
+
     
     if currentRoom == "HOUSE":
         if houseOpen is False:
@@ -86,3 +112,5 @@ while True:
             currentRoom = "FRONTYARD"
         else:
             currentRoom = "ENTRY_HALL"
+
+print("Congratulations, you win!")

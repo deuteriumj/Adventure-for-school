@@ -9,10 +9,12 @@
             "items" : [],
             "itemDescriptions" : {},
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -31,7 +33,8 @@
             ],
             "interactionResults" : {
                 "HOUSE_KEY" : "you open the door",
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -45,10 +48,12 @@
             "items": [],
             "itemDescriptions" : {},
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -58,13 +63,16 @@
             ],
             "description" : "you are in the forest on the other side of the clearing, theres a shovel on the ground",
             "items" : ["SHOVEL"],
-            "itemDescriptions" : {},
+            "itemDescriptions" : {
+                "SHOVEL" : "It's an iron shovel with a wooden handle"
+            },
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
                 "PHONE" : "",
-                "SHOVEL" : "It's an iron shovel with a wooden handle"
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -80,10 +88,12 @@
                 "STRANGE_KEY": "It's an old, slightly rusty skeleton key"
             },
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -101,7 +111,8 @@
             ],
             "interactionResults" : {
                 "SHOVEL" : "you dig a hole and theres a chest",
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -121,21 +132,26 @@
             ],
             "interactionResults" : {
                 "STRANGE_KEY" : "you open the chest and get another key",
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
         "ENTRY_HALL" : {
             "connectedPlaces" : [
-                "FRONTYARD"
+                "FRONTYARD",
+                "BEDROOM",
+                "LIVING_ROOM"
             ],
-            "description" : "uninhabited but clean, theres a phone",
+            "description" : "",
             "items" : [],
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -151,10 +167,12 @@
                 "PHONE" : ""
             },
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -166,10 +184,12 @@
             "description" : "",
             "items" : [],
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         },
 
@@ -185,11 +205,17 @@
                 "NOTEBOOK" : ""
             },
             "availableInteractions" : [
-                "PHONE"
+                "PHONE",
+                "NOTEBOOK"
             ],
             "interactionResults" : {
-                "PHONE" : ""
+                "PHONE" : "",
+                "NOTEBOOK" : "You open the notebook"
             }
         }
+    },
+
+    "pages" : {
+        "1" : "Email password:\nmason86"
     }
 }
