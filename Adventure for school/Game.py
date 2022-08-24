@@ -2,11 +2,12 @@ import json
 import random
 
 # load the .json file
-f = open('Adventure for school/script.json')
+f = open('script.json')
 dataFile = json.load(f)
 f.close()
-
-notebookPages = dataFile["pages"]
+f = open('notebookpages.json')
+notebookPages = json.load(f)
+f.close()
 
 currentRoom = "FOREST"
 currentDesc = ""
@@ -19,9 +20,10 @@ inventory = ["NOTEBOOK", "PHONE"]
 houseOpen = False
 hasWon = False
 PASSWORD = random.randint(100000, 999999)
-PASSWORDPAGE = str(random.randint(1, 20))
+PASSWORDPAGE = str(random.randint(11, 20))
 
 def displayIntro():
+    print()
     print("You remember camping with your friends in the forest but it seems foggy and your head hurts.")
     print("You don't know where you are or how you got there.")
 
@@ -77,7 +79,7 @@ while not hasWon:
                 
                 elif i == "STRANGE_KEY":
                     inventory.append("HOUSE_KEY")
-                    print(f"You got HOUSE_KEY")
+                    print("You got HOUSE_KEY")
                     print(dataFile["places"][currentRoom]["itemDescriptions"]["HOUSE_KEY"])
                     input("Press enter to continue...")
                 
@@ -94,18 +96,17 @@ while not hasWon:
                 elif i == "NOTEBOOK":
                     in_notebook = True
                     while in_notebook:
-                        page = input("Choose a page (1-20)\nTo close the notebook type close\n>")
+                        page = input("Choose a page (1-20)\nTo close the notebook type close\n>").lower()
                         if page == "close":
                             in_notebook = False
                         elif page == PASSWORDPAGE:
                             print(f"Phone password:\n{PASSWORD}")
-                        elif page in notebookPages:
-                            print(notebookPages[page])
+                        elif page in notebookPages["pages"]:
+                            print(notebookPages["pages"][page])
                             input("Press enter to continue...")
                         else:
                             print("The page is blank")
 
-    
     if currentRoom == "HOUSE":
         if houseOpen is False:
             print("the door is locked")
