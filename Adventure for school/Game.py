@@ -3,10 +3,10 @@ import random
 
 # load the .json file
 f = open('script.json')
-dataFile = json.load(f)
+placeJson = json.load(f)
 f.close()
-f = open('notebookpages.json')
-notebookPages = json.load(f)
+f = open('notebookPages.json')
+pageJson = json.load(f)
 f.close()
 
 currentRoom = "FOREST"
@@ -15,12 +15,18 @@ currentMovements = []
 availableItems = []
 availableInteractions = []
 availableResults = []
-inventory = ["NOTEBOOK", "PHONE"]
+inventory = []
 
 houseOpen = False
 hasWon = False
-PASSWORD = random.randint(100000, 999999)
-PASSWORDPAGE = str(random.randint(11, 20))
+
+PHONE_PASSWORD = random.randint(100000, 999999)
+COMPUTER_PASSWORD = "J0naTHaNJoe5taR"
+PHONE_PASSWORDPAGE = str(random.randint(11, 20))
+COMPUTER_PASSWORDPAGE = PHONE_PASSWORDPAGE
+while COMPUTER_PASSWORDPAGE == PHONE_PASSWORDPAGE:
+    COMPUTER_PASSWORDPAGE = str(random.randint(11, 20))
+
 
 def displayIntro():
     print()
@@ -38,11 +44,11 @@ def actionsUI():
 
 displayIntro()
 while not hasWon:
-    availableInteractions = dataFile["places"][currentRoom]["availableInteractions"]
-    currentMovements = dataFile["places"][currentRoom]["connectedPlaces"]
-    currentDesc = dataFile["places"][currentRoom]["description"]
-    availableItems = dataFile["places"][currentRoom]["items"]
-    availableResults = dataFile["places"][currentRoom]["interactionResults"]
+    availableInteractions = placeJson["places"][currentRoom]["availableInteractions"]
+    currentMovements = placeJson["places"][currentRoom]["connectedPlaces"]
+    currentDesc = placeJson["places"][currentRoom]["description"]
+    availableItems = placeJson["places"][currentRoom]["items"]
+    availableResults = placeJson["places"][currentRoom]["interactionResults"]
 
     action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
     
@@ -55,11 +61,14 @@ while not hasWon:
         # check if the item in action is also in available items
         for i in availableItems:
             if i in action:
-                inventory.append(i)
-                print(f"\nYou got {i}")
-                print(dataFile["places"][currentRoom]["itemDescriptions"][i])
-                dataFile["places"][currentRoom]["items"].remove(i)
-                input("Press enter to continue...")
+                print(placeJson["places"][currentRoom]["itemDescriptions"][i])
+                if i == "COMPUTER":
+                    continue
+                else:
+                    inventory.append(i)
+                    print(f"\nYou got {i}")
+                    placeJson["places"][currentRoom]["items"].remove(i)
+                    input("Press enter to continue...")
 
     elif "GO TO " in action:
         # check if the place in action is also in the available movements
@@ -73,14 +82,14 @@ while not hasWon:
             if i in action and i in inventory:
                 print(availableResults[i])
                 if i == "SHOVEL":
-                    dataFile["places"]["FOREST"]["connectedPlaces"].remove("DIRT_PATCH")
-                    dataFile["places"]["FOREST"]["connectedPlaces"].append("THE_HOLE")
+                    placeJson["places"]["FOREST"]["connectedPlaces"].remove("DIRT_PATCH")
+                    placeJson["places"]["FOREST"]["connectedPlaces"].append("THE_HOLE")
                     currentRoom = "THE_HOLE"
                 
                 elif i == "STRANGE_KEY":
                     inventory.append("HOUSE_KEY")
                     print("You got HOUSE_KEY")
-                    print(dataFile["places"][currentRoom]["itemDescriptions"]["HOUSE_KEY"])
+                    print(placeJson["places"][currentRoom]["itemDescriptions"]["HOUSE_KEY"])
                     input("Press enter to continue...")
                 
                 elif i == "HOUSE_KEY":
@@ -101,11 +110,17 @@ while not hasWon:
                             in_notebook = False
                         elif page == PASSWORDPAGE:
                             print(f"Phone password:\n{PASSWORD}")
-                        elif page in notebookPages["pages"]:
-                            print(notebookPages["pages"][page])
+                        elif page in pageJson["pages"]:
+                            print(pageJson["pages"][page])
                             input("Press enter to continue...")
                         else:
                             print("The page is blank")
+            elif i in action and i == "COMPUTER":
+                guess = int(input("Input the password\n>"))
+                if guess != COMPUTER_PASSWORD:
+                    print("incorrect")
+                else:
+                    print("IDK what to do here yet")
 
     if currentRoom == "HOUSE":
         if houseOpen is False:

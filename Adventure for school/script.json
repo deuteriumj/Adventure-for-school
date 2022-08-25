@@ -182,12 +182,19 @@
                 "OFFICE"
             ],
             "description" : "",
-            "items" : [],
+            "items" : [
+                "COMPUTER"
+            ],
+            "itemDescriptions" : {
+                "COMPUTER" : "You can't pick up a pc"
+            },
             "availableInteractions" : [
+                "COMPUTER",
                 "PHONE",
                 "NOTEBOOK"
             ],
             "interactionResults" : {
+                "COMPUTER" : "",
                 "PHONE" : "",
                 "NOTEBOOK" : "You open the notebook"
             }
