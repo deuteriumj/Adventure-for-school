@@ -5,7 +5,7 @@ import random
 f = open('script.json')
 placeJson = json.load(f)
 f.close()
-f = open('notebookPages.json')
+f = open('notebookpages.json')
 pageJson = json.load(f)
 f.close()
 
@@ -16,6 +16,8 @@ availableItems = []
 availableInteractions = []
 availableResults = []
 inventory = []
+
+anywhereInteractions = placeJson["anywhereItems"]["interactions"]
 
 houseOpen = False
 hasWon = False
@@ -95,7 +97,16 @@ while not hasWon:
                 elif i == "HOUSE_KEY":
                     houseOpen = True
                 
-                elif i == "PHONE":
+            elif i in action and i == "COMPUTER":
+                guess = int(input("Input the password\n>"))
+                if guess != COMPUTER_PASSWORD:
+                    print("incorrect")
+                else:
+                    currentRoom = "HOME_SCREEN"
+
+        for i in anywhereInteractions:
+            if i in action and i in inventory:
+                if i == "PHONE":
                     guess = int(input("Input the password\n>"))
                     if guess != PASSWORD:
                         print("incorrect")
@@ -115,12 +126,7 @@ while not hasWon:
                             input("Press enter to continue...")
                         else:
                             print("The page is blank")
-            elif i in action and i == "COMPUTER":
-                guess = int(input("Input the password\n>"))
-                if guess != COMPUTER_PASSWORD:
-                    print("incorrect")
-                else:
-                    print("IDK what to do here yet")
+
 
     if currentRoom == "HOUSE":
         if houseOpen is False:

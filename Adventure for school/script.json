@@ -1,5 +1,19 @@
 {
+    "anywhereItems" : [
+        "PHONE",
+        "NOTEBOOK"
+    ],
+
     "places": {
+        "" : {
+            "connectedPlaces" : [],
+            "description" : "",
+            "items" : [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [],
+            "interactionResults" : {}
+        },
+
         "FOREST": {
             "connectedPlaces" : [
                 "FRONTYARD",
@@ -8,14 +22,8 @@
             "description": "there's trees around you and a clearing in front of you",
             "items" : [],
             "itemDescriptions" : {},
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "FRONTYARD": {
@@ -28,13 +36,10 @@
             "items" : [],
             "itemDescriptions" : {},
             "availableInteractions" : [
-                "HOUSE_KEY",
-                "PHONE"
+                "HOUSE_KEY"
             ],
             "interactionResults" : {
-                "HOUSE_KEY" : "you open the door",
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
+                "HOUSE_KEY" : "you open the door"
             }
         },
 
@@ -47,14 +52,8 @@
             "description": "you are behind the house, there is a shed",
             "items": [],
             "itemDescriptions" : {},
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "BACK_FOREST" : {
@@ -66,14 +65,8 @@
             "itemDescriptions" : {
                 "SHOVEL" : "It's an iron shovel with a wooden handle"
             },
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "SHED" : {
@@ -87,14 +80,8 @@
             "itemDescriptions": {
                 "STRANGE_KEY": "It's an old, slightly rusty skeleton key"
             },
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "DIRT_PATCH" : {
@@ -106,13 +93,10 @@
             "items" : [],
             "itemDescriptions" : {},
             "availableInteractions" : [
-                "SHOVEL",
-                "PHONE"
+                "SHOVEL"
             ],
             "interactionResults" : {
-                "SHOVEL" : "you dig a hole and theres a chest",
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
+                "SHOVEL" : "you dig a hole and theres a chest"
             }
         },
 
@@ -127,13 +111,10 @@
                 "HOUSE_KEY" : "house keeeeeeeeeeeeeeeeeeeeeeeeeee"
             },
             "availableInteractions" : [
-                "STRANGE_KEY",
-                "PHONE"
+                "STRANGE_KEY"
             ],
             "interactionResults" : {
-                "STRANGE_KEY" : "you open the chest and get another key",
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
+                "STRANGE_KEY" : "you open the chest and get another key"
             }
         },
 
@@ -145,14 +126,8 @@
             ],
             "description" : "",
             "items" : [],
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "BEDROOM" : {
@@ -166,14 +141,8 @@
             "itemDescriptions" : {
                 "PHONE" : ""
             },
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "LIVING_ROOM" : {
@@ -188,16 +157,8 @@
             "itemDescriptions" : {
                 "COMPUTER" : "You can't pick up a pc"
             },
-            "availableInteractions" : [
-                "COMPUTER",
-                "PHONE",
-                "NOTEBOOK"
-            ],
-            "interactionResults" : {
-                "COMPUTER" : "",
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "availableInteractions" : [],
+            "interactionResults" : {}
         },
 
         "OFFICE" : {
@@ -211,14 +172,19 @@
             "itemDescriptions" : {
                 "NOTEBOOK" : ""
             },
-            "availableInteractions" : [
-                "PHONE",
-                "NOTEBOOK"
+            "availableInteractions" : [],
+            "interactionResults" : {}
+        },
+
+        "HOME_SCREEN" : {
+            "connectedPlaces" : [
+                "LIVING_ROOM"
             ],
-            "interactionResults" : {
-                "PHONE" : "",
-                "NOTEBOOK" : "You open the notebook"
-            }
+            "description" : "rayzer gaymer rayzer gaymer rayzer gaymer rayzer gaymer",
+            "items" : [],
+            "itemDescriptions" : {},
+            "availableInteractions" : [],
+            "interactionResults" : {}
         }
     }
 }
