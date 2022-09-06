@@ -17,17 +17,13 @@ availableInteractions = []
 availableResults = []
 inventory = []
 
-anywhereInteractions = placeJson["anywhereItems"]["interactions"]
+anywhereInteractions = placeJson["anywhereItems"]
 
 houseOpen = False
 hasWon = False
 
 PHONE_PASSWORD = random.randint(100000, 999999)
-COMPUTER_PASSWORD = "J0naTHaNJoe5taR"
 PHONE_PASSWORDPAGE = str(random.randint(11, 20))
-COMPUTER_PASSWORDPAGE = PHONE_PASSWORDPAGE
-while COMPUTER_PASSWORDPAGE == PHONE_PASSWORDPAGE:
-    COMPUTER_PASSWORDPAGE = str(random.randint(11, 20))
 
 
 def displayIntro():
@@ -52,7 +48,7 @@ while not hasWon:
     availableItems = placeJson["places"][currentRoom]["items"]
     availableResults = placeJson["places"][currentRoom]["interactionResults"]
 
-    action = input(f"\n(To check the commands type \"actions\")\nYou are in the {currentRoom}\n{currentDesc}\nMovement options:\n{' '.join(currentMovements)}\nAvailable items:\n{' '.join(availableItems)}\n>").upper()
+    action = input(f"\n(To check the commands type \"actions\")\nYou are in the \033[0;31;40m{currentRoom}\033[0m\n{currentDesc}\nMovement options:\n\033[0;32;40m{' '.join(currentMovements)}\033[0m\nAvailable items:\n\033[0;33;40m{' '.join(availableItems)}\033[0m\n>").upper()
     
     if action == "INVENTORY":
         inventoryUI()
@@ -64,13 +60,10 @@ while not hasWon:
         for i in availableItems:
             if i in action:
                 print(placeJson["places"][currentRoom]["itemDescriptions"][i])
-                if i == "COMPUTER":
-                    continue
-                else:
-                    inventory.append(i)
-                    print(f"\nYou got {i}")
-                    placeJson["places"][currentRoom]["items"].remove(i)
-                    input("Press enter to continue...")
+                inventory.append(i)
+                print(f"\nYou got {i}")
+                placeJson["places"][currentRoom]["items"].remove(i)
+                input("Press enter to continue...")
 
     elif "GO TO " in action:
         # check if the place in action is also in the available movements
@@ -96,13 +89,6 @@ while not hasWon:
                 
                 elif i == "HOUSE_KEY":
                     houseOpen = True
-                
-            elif i in action and i == "COMPUTER":
-                guess = int(input("Input the password\n>"))
-                if guess != COMPUTER_PASSWORD:
-                    print("incorrect")
-                else:
-                    currentRoom = "HOME_SCREEN"
 
         for i in anywhereInteractions:
             if i in action and i in inventory:
