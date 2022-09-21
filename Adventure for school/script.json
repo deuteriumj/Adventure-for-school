@@ -174,17 +174,6 @@
             },
             "availableInteractions" : [],
             "interactionResults" : {}
-        },
-
-        "HOME_SCREEN" : {
-            "connectedPlaces" : [
-                "LIVING_ROOM"
-            ],
-            "description" : "rayzer gaymer rayzer gaymer rayzer gaymer rayzer gaymer",
-            "items" : [],
-            "itemDescriptions" : {},
-            "availableInteractions" : [],
-            "interactionResults" : {}
         }
     }
 }
